@@ -2,9 +2,26 @@ import { useState } from 'react';
 import { BiLike } from 'react-icons/bi';
 import { FaRegCommentDots, FaRegShareSquare } from 'react-icons/fa';
 import { MdKeyboardArrowDown, MdPublic, MdTimer } from 'react-icons/md';
-import { Public } from './styles';
+import { BsFillLockFill } from 'react-icons/bs';
+import { Container } from './styles';
 
-function PostPublic() {
+interface PostProps {
+  name: string;
+  time: string;
+  text: string;
+  comments: number;
+  share: number;
+  isPrivate?: boolean;
+}
+
+function Post({
+  name,
+  time,
+  text,
+  comments,
+  share,
+  isPrivate = false
+}: PostProps) {
   const [like, setLike] = useState(false);
 
   function handleLiked() {
@@ -12,51 +29,60 @@ function PostPublic() {
   }
 
   return (
-    <Public>
-      <div className="img-name-private-time">
-        <img src="https://github.com/rodrigosaantos.png" alt="RodrigoSantos" />
-        <div>
-          <span>Rodrigo Santos</span>
+      <Container>
+        <div className="img-name-private-time">
+          <img src="https://github.com/rodrigosaantos.png" alt="RodrigoSantos" />
           <div>
-            <MdTimer/>
-            <span>há 8 dias</span>
-            <MdPublic />
-            <span>Público</span>
+            <span>{name}</span>
+            <div>
+              <MdTimer/>
+              <span>{time}</span>
+              {isPrivate ? (
+                <>
+                  <BsFillLockFill />
+                  <span>Somente eu</span>
+                </>
+              ) : (
+                <>
+                  <MdPublic />
+                  <span>Público</span>
+                </>
+              )}
+            </div>
+          </div>
+          <MdKeyboardArrowDown />
+        </div>
+        <p>{text}</p>
+        <div className="like-comment-share">
+          <div className="numbers">
+            <div>
+              <BiLike style={{ color: like ? 'var(--color-primary)' : ''}} />
+              <span>{like ? '1 pessoa curtiu isso' : 'Seja o primeiro a curtir'}</span>
+            </div>
+            <div>
+              <span>{comments} Comentários</span>
+              <span>{share} Compartilhamentos</span>
+            </div>
+          </div>
+          <div className="buttons">
+              <button onClick={handleLiked} style={{ color: like ? 'var(--color-primary)' : ''}}>
+                <BiLike />
+                {like ? 'Você curtiu' : 'Curtir'}
+              </button>
+              
+              <button>
+                <FaRegCommentDots />
+                Comentários
+              </button>
+              
+              <button>
+                <FaRegShareSquare />
+                Compartilhar
+              </button>
           </div>
         </div>
-        <MdKeyboardArrowDown />
-      </div>
-      <p>kkkk</p>
-      <div className="like-comment-share">
-        <div className="numbers">
-          <div>
-            <BiLike style={{ color: like ? 'var(--color-primary)' : ''}} />
-            <span>{like ? '1 pessoa curtiu isso' : 'Seja o primeiro a curtir'}</span>
-          </div>
-          <div>
-            <span>0 Comentários</span>
-            <span>3 Compartilhamentos</span>
-          </div>
-        </div>
-        <div className="buttons">
-            <button onClick={handleLiked} style={{ color: like ? 'var(--color-primary)' : ''}}>
-              <BiLike />
-              {like ? 'Você curtiu' : 'Curtir'}
-            </button>
-            
-            <button>
-              <FaRegCommentDots />
-              Comentários
-            </button>
-            
-            <button>
-              <FaRegShareSquare />
-              Compartilhar
-            </button>
-        </div>
-      </div>
-    </Public>
+      </Container>
   )
 }
 
-export { PostPublic };
+export { Post };

@@ -1,6 +1,5 @@
 import { Aside } from './components/Aside';
-import { PostPrivate } from './components/PostPrivate';
-import { PostPublic } from './components/PostPublic';
+import { Post } from './components/Post';
 import { WritePublication } from './components/Publication';
 import { Container, Content, Main } from './home';
 
@@ -11,8 +10,21 @@ function App() {
         <Aside />
         <Main>
           <WritePublication />
-          <PostPrivate />
-          <PostPublic />
+          <Post
+            name="Rodrigo Santos"
+            time="há cerca de uma hora"
+            text="Essa publicação está configurada no modo privado"
+            comments={0}
+            share={0}
+            isPrivate
+          />
+          <Post
+            name="Rodrigo Santos"
+            time="há 8 dias"
+            text="kkkk"
+            comments={0}
+            share={3}
+          />
         </Main>
       </Content>
     </Container>
