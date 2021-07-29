@@ -14,7 +14,7 @@ export const AsideElement = styled.aside`
 
     /* border: 2px solid red; */
 
-    div:first-child {
+    div.aside-profile {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -44,13 +44,22 @@ export const AsideElement = styled.aside`
         }
     }
 
-    div:last-child {
+    div.aside-info {
         width: 100%;
-        div {
+
+        span svg {
+            margin-right: 4px;
+        }
+
+        div:last-child {
             display: flex;
             
-            span:first-child {
-                margin-right: 20%;
+            span {
+                display: flex;
+                align-items: center;
+            }
+            span + span {
+                margin-left: 20%;
 
             }
         }

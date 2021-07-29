@@ -1,26 +1,24 @@
-import { BiMap } from 'react-icons/bi';
+import { BiMap, BiBuilding } from 'react-icons/bi';
+import { RiBankLine } from 'react-icons/ri';
 import { AsideElement } from './styles';
 
 function Aside() {
   return (
     <AsideElement>
-      <div>
+      <div className="aside-profile">
         <img src="https://github.com/rodrigosaantos.png" alt="RodrigoSaantos" />
         <p>Rodrigo Santos</p>
         <strong>@RodrigoSaantos</strong>
         <span>Front-end Developer</span>
       </div>
-      <div>
-        <div>
+      <div className="aside-info">
+        <span>
           <BiMap />
-          <p>Rio Branco</p>
-        </div>
-        <div>
-          <div>
-
-          <span>InCicle</span>
-          </div>
-          <span>Uninorte</span>
+          Rio Branco
+        </span>
+        <div>            
+          <span><BiBuilding />InCicle</span>
+          <span><RiBankLine />Uninorte</span>
         </div>
       </div>
     </AsideElement>
