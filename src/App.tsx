@@ -1,13 +1,19 @@
-import React from 'react';
-import { Container, Content, Aside, Main, Publication, Private } from './home';
+import { useState } from 'react';
+import { Container, Content, Aside, Main, Publication, Private, Public } from './home';
 import { GoNote } from 'react-icons/go';
 import { AiOutlinePicture } from 'react-icons/ai';
 import { BiLike } from 'react-icons/bi';
 import { FaRegCommentDots, FaRegShareSquare } from 'react-icons/fa';
 import { BsCameraVideo, BsFillLockFill } from 'react-icons/bs';
-import { MdTimer, MdKeyboardArrowDown } from 'react-icons/md';
+import { MdTimer, MdKeyboardArrowDown, MdPublic } from 'react-icons/md';
+import { WritePublication } from './components/Publication';
 
 function App() {
+  const [like, setLike] = useState(false);
+
+  function handleLiked() {
+    setLike(!like)
+  }
   return (
     <Container>
       <Content>
@@ -27,20 +33,9 @@ function App() {
           </div>
         </Aside>
         <Main>
-          <Publication>
-            <div>
-              <div>
-                <GoNote width="64px" height="64px" />
-                <input type="text" placeholder="Escreva uma publicação" />
-                <AiOutlinePicture  />
-                <BsCameraVideo  />
-              </div>
-
-              <span>ou<button>&nbsp;publique um artigo&nbsp;</button>na InCicle</span>
-            </div>
-          </Publication>
+          <WritePublication />
           <Private>
-            <div>
+            <div className="img-name-private-time">
               <img src="https://github.com/rodrigosaantos.png" alt="RodrigoSantos" />
               <div>
                 <span>Rodrigo Santos</span>
@@ -48,7 +43,7 @@ function App() {
                   <MdTimer/>
                   <span>ha cerca de uma hora</span>
                   <BsFillLockFill />
-                  <span>Somemnte eu</span>
+                  <span>Somente eu</span>
                 </div>
               </div>
               <MdKeyboardArrowDown />
@@ -83,7 +78,50 @@ function App() {
               </div>
             </div>
           </Private>
-          <div>PostPublico</div>
+          <Public>
+            <div className="img-name-private-time">
+              <img src="https://github.com/rodrigosaantos.png" alt="RodrigoSantos" />
+              <div>
+                <span>Rodrigo Santos</span>
+                <div>
+                  <MdTimer/>
+                  <span>há 8 dias</span>
+                  <MdPublic />
+                  <span>Público</span>
+                </div>
+              </div>
+              <MdKeyboardArrowDown />
+            </div>
+            <p>Essa publicação está configurada</p>
+            <div className="like-comment-share">
+              <div className="numbers">
+                <div>
+                  <BiLike style={{ color: like ? 'var(--color-primary)' : ''}} />
+                  <span>{like ? '1 pessoa curtiu isso' : 'Seja o primeiro a curtir'}</span>
+                </div>
+                <div>
+                  <span>0 Comentários</span>
+                  <span>3 Compartilhamentos</span>
+                </div>
+              </div>
+              <div className="buttons">
+                  <button onClick={handleLiked}>
+                    <BiLike />
+                    Curtir
+                  </button>
+                  
+                  <button>
+                    <FaRegCommentDots />
+                    Comentários
+                  </button>
+                  
+                  <button>
+                    <FaRegShareSquare />
+                    Compartilhar
+                  </button>
+              </div>
+            </div>
+          </Public>
         </Main>
       </Content>
     </Container>
