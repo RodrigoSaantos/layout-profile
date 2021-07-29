@@ -1,5 +1,5 @@
 <h1 align="center">
-    Profile
+    Profile-layout
 </h1>
 
 <div align="center">
@@ -34,7 +34,7 @@
 
 <h1 align="center">
   <div style="display: flex; flex-direction: row;">
-    <img width="600" style="border-radius: 10px" height="auto" alt="home" title="Home" src="public/assets/profile.png" />
+    <img width="600" style="border-radius: 10px" height="auto" alt="home" title="Home" src="public/assets/profile-layout.png" />
   <div>
 </h1>
 
