@@ -1,3 +1,4 @@
+import { BiMap } from 'react-icons/bi';
 import { AsideElement } from './styles';
 
 function Aside() {
@@ -10,9 +11,15 @@ function Aside() {
         <span>Front-end Developer</span>
       </div>
       <div>
-        <p>Rio Branco</p>
         <div>
+          <BiMap />
+          <p>Rio Branco</p>
+        </div>
+        <div>
+          <div>
+
           <span>InCicle</span>
+          </div>
           <span>Uninorte</span>
         </div>
       </div>
