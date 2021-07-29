@@ -11,8 +11,9 @@ export const AsideElement = styled.aside`
     justify-content: center;
     border-radius: 8px;
 
-
-    /* border: 2px solid red; */
+    background-image: url('https://images.unsplash.com/photo-1460411794035-42aac080490a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80');
+    background-position: 0 230%;
+    background-repeat: no-repeat;
 
     div.aside-profile {
         display: flex;
@@ -29,6 +30,7 @@ export const AsideElement = styled.aside`
             border-radius: 50%;
             border: 3px solid var(--color-primary);
             padding: 2px;
+            background: #fff;
         }
 
         p {

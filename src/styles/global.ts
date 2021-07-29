@@ -12,7 +12,7 @@ export default createGlobalStyle`
     outline: 0;
   }
   body {
-    background: #f0f1f7;
+    background: #e6e7ef;
     color: #585858;
     -webkit-font-smoothing: antialiased;
   }

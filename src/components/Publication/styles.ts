@@ -28,7 +28,7 @@ export const Publication = styled.div`
         span {
             display: flex;
             align-items: center;
-            background: #e6e6e6;
+            background: var(--color-secondary);
             border-radius: 8px;
             padding: 8px;
             font-size: 14px;
